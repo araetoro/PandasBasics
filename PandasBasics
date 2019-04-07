@@ -1,0 +1,25 @@
+import pandas
+import os
+
+os.chdir("C:\\Users\\Rae\\Desktop\\Coding\\Python")
+
+df1=pandas.read_csv("SmallFile.csv", index_col=0)
+
+"""Calculating an average of a column"""
+df["Temp"].mean()
+
+
+"""extracting a row with labels"""
+df.loc["Day 1"]
+
+"""extracting a range with labels"""
+df.loc["Day 2":"Day 4","Temp":"Pressure"]
+
+"""Extracting a single cell with lables"""
+df.loc["Day 3","Temp"]
+
+"""Extracting with position"""
+df.iloc[2,4]
+
+"""storing information from the data frame"""
+dc=df.iloc[2,4]
