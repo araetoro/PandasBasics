@@ -1,0 +1,16 @@
+import os
+import glob
+import pandas
+
+def concatenate(indir="C:\\in\\Extracted",outfile="C:\\out\\Concatenated.csv"):
+    os.chdir(indir)
+    filesList=glob.glob("*.csv")
+    dfList=[]
+    colnames=["Year", "Month", "Day", "Hour","Temp", "DewTemp","Pressure","windDir","WindSpeed","Sky","Precip1","Precip6","ID" ]
+    for filename in fileList:
+        print(filenmae)
+        df=pandas.read_csv(filename, header=None)
+        dfList.append(df)
+    concatDf=pandas.concat(dfList,axis=0)
+    concatDF.columns=colnames
+    concatDf.to_csv(outfile,index=None)
