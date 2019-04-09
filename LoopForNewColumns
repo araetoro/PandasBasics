@@ -1,0 +1,11 @@
+import os
+import glob
+import pandas
+
+def addField(indir="C:\\in\\Extracted"):
+    os.chdir(indir)
+    fieldList=glob.glob("*")
+    for filename in fileList:
+        pandas.read_csv(filename,sep='\s+',header=None)
+        df["Station]=[filenmae.rsplit("-",1)[0]]*df.shape[0]
+        df.to_csv(filename+".csv",index=None,header=None)
