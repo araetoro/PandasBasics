@@ -1,0 +1,8 @@
+import pandas
+
+def merge(left="C:\\out\\Concatenated.csv", right="C:\\CS\\station-info.txt", output="C:\\out\\Concatenated.Merged.csv"):
+    leftDf=pandas.readcsv(left)
+    rightDf=pandas.read_fwf(right, converters={"USAF":str,"WBAN":str})
+    rightDf["USAF_WBAN"]=rightDF["USAF"]+"-"+rightDf["WBAN"]
+    mergeDf=pandas.merge(leftDf,rightDf.ix[:,["USAF_WBAN","STATION NAME","LAT","LON"]], left_on="ID",right_on="USAF_WBAN")
+    mergedDf.to_csv(output)
