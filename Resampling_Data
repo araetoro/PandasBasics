@@ -1,0 +1,17 @@
+import pandas as pd
+df = pd.read_csv("filename.csv")
+
+#converting the data in the Date column to a datetime object
+df["Date"] = pd.to_datetime(df["Date"], format= "%m/%d/%Y")
+
+#setting the index with the Date column
+df = df.set_index(pd.DatetimeIndex(df["Date"]))
+
+#resample to month level
+df = df.resample("M").sum()
+
+#resample to week level
+df = df.resample("w").sum()
+
+#save to csv
+df.to_csv("finalFileName.csv)
